@@ -44,10 +44,9 @@ export const AuthProvider = ({children}) => {
             ] = `Bearer ${response.data.token}`;
             localStorage.setItem("@Auth:token", response.data.token);
             localStorage.setItem("@Auth:refreshToken", response.data.refreshToken);
-            const usuario = buscarUsuario(data.login).then((resp) => {return resp.data})
-            if (usuario.primeiroAcesso == null){
-                setPrimeiroAcesso(true)
-            }
+            const usuario = await buscarUsuario(data.login).then((resp) => {return resp.data})
+                console.log(usuario.primeiroAcesso)
+                setPrimeiroAcesso(usuario.primeiroAcesso)
             localStorage.setItem("@Auth:user", usuario.login);
 
         }
