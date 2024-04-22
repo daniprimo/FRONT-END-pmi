@@ -1,12 +1,15 @@
 import { Box, Button } from "@mui/material";
 import InputPadrao from "../../components/Input/inputPadrao";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { buscaEndereco } from "../../api/apiViaCeo";
 import { salvarDadosUsuario } from "../../api/api";
+import { AuthContext } from "../../context/auth";
 
 
 export default function LoginDadosPessoaias() {
+  const {setPrimeiroAcesso} = useContext(AuthContext);
+
   const [mostra, setMostra] = useState(true)
   const login = localStorage.getItem("@Auth:user");
 
@@ -62,10 +65,8 @@ export default function LoginDadosPessoaias() {
     const handlerSalvar = async () => {
       await salvarDadosUsuario(data, login)
         .then((resp) => {
-          console.log("adicionou")
-
-          console.log(resp.data)
-          navigate(0)
+          console.log(resp)
+          setPrimeiroAcesso(false)
         }).catch((err) => {
           console.log("errou")
         })
