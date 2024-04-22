@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/auth';
 import { testarApi } from "../../api/api";
+import ResponsiveAppBar from "../nav-bar";
 
 
 
@@ -28,7 +29,7 @@ export default function Home() {
         })
     }, [reload])
     setTimeout(repet, 2000)
-    return (<><h2>Passou</h2>
-        <Button onClick={() => handlerLogout()}>LOGOUT</Button>
-    </>)
+    return (<>
+        <ResponsiveAppBar />            
+            </>)
 }
