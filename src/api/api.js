@@ -42,6 +42,11 @@ export const testarApi = () => {
     return refreshTokenBB().get(url);
 };
 
+export const salvarDadosUsuario = (data, login) => {
+    const url = `/usuario/adicionarInformacoesDoUsuario/${login}`;
+    return refreshTokenBB().patch(url, data);
+};  
+
 
 
 

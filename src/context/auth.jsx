@@ -8,6 +8,8 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
+    const [primeiroAcesso, setPrimeiroAcesso] = useState();
+
 
     useEffect(() => {
         const loadingStoreData = async () => {
@@ -42,8 +44,10 @@ export const AuthProvider = ({children}) => {
             ] = `Bearer ${response.data.token}`;
             localStorage.setItem("@Auth:token", response.data.token);
             localStorage.setItem("@Auth:refreshToken", response.data.refreshToken);
-            const usuario = await buscarUsuario(data.login).then((resp) => {return resp.data.login})
-            localStorage.setItem("@Auth:user", usuario);
+            const usuario = await buscarUsuario(data.login).then((resp) => {return resp.data})
+                console.log(usuario.primeiroAcesso)
+                setPrimeiroAcesso(usuario.primeiroAcesso)
+            localStorage.setItem("@Auth:user", usuario.login);
 
         }
     }
@@ -71,6 +75,8 @@ export const AuthProvider = ({children}) => {
         <AuthContext.Provider value={{
             user, 
             signed: !!user,
+            primeiroAcesso,
+            setPrimeiroAcesso,
             singOut, 
             RefrshIn,
             SignIn,

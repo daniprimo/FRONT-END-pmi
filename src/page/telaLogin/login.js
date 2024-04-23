@@ -45,7 +45,7 @@ const Login = () => {
         maxWidth: '500px',
         margin: 'auto',
         padding: '20px',
-        marginTop: '20%',
+        marginTop: '10%',
         borderRadius: '8px',
         boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
         backgroundColor: '#404040',
