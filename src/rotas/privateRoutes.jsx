@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth"
 import Home from "../components/home";
 import { Navigate } from "react-router-dom";
 import LoginDadosPessoaias from "../page/telaLogin/dadoPessoais";
+import PersistentDrawerLeft from "../components/nav-bar/lateral";
 
 
 export const PrivateRoute = () => {

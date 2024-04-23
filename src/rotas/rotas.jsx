@@ -3,6 +3,7 @@ import Home from "../components/home";
 import { PrivateRoute } from "./privateRoutes";
 import TelaLogin from "../page/telaLogin/login";
 import LoginDadosPessoaias from "../page/telaLogin/dadoPessoais";
+import Projeto from "../components/CriarProjeto";
 
 
 export default function Rotas() {
@@ -16,6 +17,9 @@ export default function Rotas() {
                     </Route>
                     <Route path="/Home" element={<PrivateRoute />}>
                       <Route path="/Home" element={<Home />}/>
+                    </Route>
+                    <Route path="/Manual" element={<PrivateRoute />}>
+                      <Route path="/Manual" element={<Projeto />}/>
                     </Route>
                 </Routes>
             </Router>

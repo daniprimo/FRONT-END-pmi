@@ -11,7 +11,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { AuthContext } from '../../context/auth';
 
 const pages = ['Projetos', 'Dashboard', 'Financeiro'];
@@ -47,10 +46,9 @@ function ResponsiveAppBar() {
   
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+    <AppBar position="static" style={{backgroundColor: "#e2661b"}}>
+      <Container maxWidth="lg" disableGutters="true">
+        <Toolbar>
           <Typography
             variant="h6"
             noWrap
@@ -66,7 +64,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            PMI
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -105,7 +103,7 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
           <Typography
             variant="h5"
             noWrap
@@ -122,8 +120,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            PMI
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -168,6 +167,7 @@ function ResponsiveAppBar() {
                 </MenuItem>
             </Menu>
           </Box>
+
         </Toolbar>
       </Container>
     </AppBar>
