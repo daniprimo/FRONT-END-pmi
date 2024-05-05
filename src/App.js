@@ -2,7 +2,6 @@ import './App.css';
 import { Box, CircularProgress, Container, Modal } from '@mui/material';
 import { AuthProvider } from './context/auth';
 import Rotas from './rotas/rotas';
-import ResponsiveAppBar from './components/nav-bar';
 import React, { useEffect } from 'react';
 import { testarApi } from './api/api';
 
