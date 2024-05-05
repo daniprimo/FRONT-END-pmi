@@ -36,10 +36,8 @@ function App() {
     setReload(!reload)
   }
   
-  useEffect(() => {
-    testarApi().then(() => {}).catch(() => {
-      handleClose()
-    }).catch(() => {
+useEffect(() => {
+    testarApi().then(() => {handleClose()}).catch(() => {
       handleOpen()
     })
 }, [reload])
