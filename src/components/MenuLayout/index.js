@@ -33,7 +33,6 @@ export default function Layout({children}) {
         <Box sx={{ display: 'flex' }}>
             <MenuLateral />
             <div style={{marginTop: '5vh'}}>
-                <h2>dsdsd</h2>
                 {children}
             </div>
         </Box>                
