@@ -95,7 +95,7 @@ export default function MenuLateral() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} color='warning'>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -110,7 +110,7 @@ export default function MenuLateral() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            PMI - Project Manager Instances
+            Gerenciador de projetos
           </Typography>
         </Toolbar>
       </AppBar>
