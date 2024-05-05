@@ -1,9 +1,9 @@
 import React from 'react'
-import Home from '../../components/home'
+import Layout from '../../components/MenuLayout'
 
 export default function PaginaHome() {
   return (
-    <Home>
+    <Layout>
         <div>PaginaHome</div><br/>
         <div>PaginaHome</div><br/>
         <div>PaginaHome</div><br/>
@@ -11,6 +11,6 @@ export default function PaginaHome() {
         <div>PaginaHome</div><br/>
         <div>PaginaHome</div><br/>
         <div>PaginaHome</div><br/>
-    </Home>
+    </Layout>
   )
 }

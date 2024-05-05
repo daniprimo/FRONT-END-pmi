@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { AuthContext } from "../context/auth"
-import Home from "../components/home";
+import Home from "../components/MenuLayout";
 import { Navigate } from "react-router-dom";
 import LoginDadosPessoaias from "../page/telaLogin/dadoPessoais";
 import PersistentDrawerLeft from "../components/nav-bar/lateral";
