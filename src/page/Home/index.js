@@ -1,16 +1,11 @@
 import React from 'react'
 import Layout from '../../components/MenuLayout'
+import DashboardOperacional from '../../components/dashboard'
 
 export default function PaginaHome() {
   return (
     <Layout>
-        <div>PaginaHome</div><br/>
-        <div>PaginaHome</div><br/>
-        <div>PaginaHome</div><br/>
-
-        <div>PaginaHome</div><br/>
-        <div>PaginaHome</div><br/>
-        <div>PaginaHome</div><br/>
+       <DashboardOperacional />
     </Layout>
   )
 }
