@@ -41,7 +41,7 @@ useEffect(() => {
       handleOpen()
     })
 }, [reload])
-setTimeout(repet, 2000)
+setTimeout(repet, 2000000)
 
 
   return (
