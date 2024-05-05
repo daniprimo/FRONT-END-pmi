@@ -9,8 +9,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [primeiroAcesso, setPrimeiroAcesso] = useState();
-
-
+    
     useEffect(() => {
         const loadingStoreData = async () => {
             const storageUser = localStorage.getItem("@Auth:user");
@@ -26,8 +25,7 @@ export const AuthProvider = ({children}) => {
         localStorage.clear();
         setUser(null);
         return <Navigate to="/" />;
-      };
-    
+    };
 
     const SignIn = async (data) => {
         let errou = false;

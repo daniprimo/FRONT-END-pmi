@@ -28,9 +28,7 @@ export function refreshTokenBB(){
     const cookies = localStorage.getItem("@Auth:token");
     const api = getAutenticacao(cookies);
     return api;  
-
 }
-
 
 export const buscarUsuario = (login) => {
     const url = `/usuario/buscarUsuario/${login}`;
