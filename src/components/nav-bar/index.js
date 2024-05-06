@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { AuthContext } from '../../context/auth';
 
 const pages = ['Projetos', 'Dashboard', 'Financeiro'];
-const settings = ['Profile', 'Account', 'Dashboard'];
+const settings = ['Perfil', 'Conta', 'Dashboard'];
 
 function ResponsiveAppBar() {
     const {singOut, RefrshIn} = React.useContext(AuthContext)

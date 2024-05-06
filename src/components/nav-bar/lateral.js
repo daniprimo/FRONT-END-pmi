@@ -14,6 +14,10 @@ import Typography from '@mui/material/Typography';
 import { styled, useTheme } from '@mui/material/styles';
 import * as React from 'react';
 import MenuSimples from '../MenuLayout/menus/menuSimples';
+import { Avatar, Menu, MenuItem, Tooltip } from '@mui/material';
+import { AuthContext } from '../../context/auth';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const drawerWidth = 240;
@@ -84,19 +88,38 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-
+const pages = ['Projetos', 'Dashboard', 'Financeiro'];
+const settings = ['Perfil', 'Time', 'Dashboard'];
 
 export default function MenuLateral() {
 
-    
+  const {singOut} = useContext(AuthContext)
+  const navigate = useNavigate();
+
   const theme = useTheme();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const handleLogout = () => {
+    setAnchorElUser(null);
+    singOut();
+    navigate("/")
+  };
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open} color='warning'>
         <Toolbar>
+       
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -109,9 +132,44 @@ export default function MenuLateral() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Gerenciador de projetos
+          <Typography variant="h6" component="div">
+            PMI
           </Typography>
+
+
+
+          <Box sx={{ flexGrow: 0, marginLeft: '70%', marginRight: '5%' }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '45px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+              <MenuItem onClick={handleLogout}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
+            </Menu>
+          </Box>
         </Toolbar>
       </AppBar>
       
